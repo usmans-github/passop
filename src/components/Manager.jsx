@@ -115,7 +115,7 @@ const Manager = () => {
           <span>Pass</span>
           <span className="text-green-500">OP/&gt;</span>
         </h1>
-        <p className="text-center text-green-800 text-lg ">
+        <p className="text-center font-semibold text-green-800 text-lg ">
           Your own Password Manager
         </p>
 
@@ -164,16 +164,16 @@ const Manager = () => {
           <button
             onClick={savePassword}
             onChange={handleChange}
-            className="flex justify-center items-center  hover:bg-green-400 rounded-full bg-green-500 w-fit px-4 py-2  "
+            className="flex justify-center items-center font-semibold  hover:bg-green-400 rounded-full bg-green-500 w-fit px-4 py-2  "
           >
-            <div className="icon">
+            <div className="icon flex items-center">
               <lord-icon
                 src="https://cdn.lordicon.com/jgnvfzqg.json"
                 trigger="hover"
                 colors="primary:#1e293b"
               ></lord-icon>
             </div>
-            Add Password
+            Save Password
           </button>
         </div>
         <div className="passwords ">
@@ -181,7 +181,7 @@ const Manager = () => {
           {passwordArray.length === 0 && <div>No Passwords to show</div>}
           {passwordArray.length != 0 &&
           <div className="max-h-64 overflow-y-auto">
-          <table className="min-w-full table-auto border-collapse  rounded-md  overflow-hidden w-full ">
+          <table className=" font-semibold table-auto border-collapse  rounded-md  overflow-hidden w-full ">
               <thead className="bg-green-800 text-white ">
                 <tr>
                   <th className="py-2">Site</th>
