@@ -108,7 +108,8 @@ const Manager = () => {
         />
         {/* Same as */}
         <ToastContainer />
-      <div className="md:mycontainer w-full ">
+        <div className="absolute inset-0 -z-10 min-h-full w-full bg-green-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"><div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-green-400 opacity-20 blur-[100px]"></div></div>
+      <div className=" p-3 md:mycontainer min-h-[88.2vh] ">
         <h1 className="text-4xl font-bold text-center">
           <span className="text-green-500">&lt;</span>
           <span>Pass</span>
@@ -179,7 +180,8 @@ const Manager = () => {
           <h2 className="font-bold text-2xl p-4">Your Passwords</h2>
           {passwordArray.length === 0 && <div>No Passwords to show</div>}
           {passwordArray.length != 0 &&
-            <table className="table-auto  rounded-md  overflow-hidden mb-6">
+          <div className="max-h-64 overflow-y-auto">
+          <table className="min-w-full table-auto border-collapse  rounded-md  overflow-hidden w-full ">
               <thead className="bg-green-800 text-white ">
                 <tr>
                   <th className="py-2">Site</th>
@@ -221,7 +223,7 @@ const Manager = () => {
                           <div
                             className="lordcopy size-7 cursor-pointer"
                             onClick={() => copyText(item.username)}
-                          >
+                            >
                             <lord-icon
                               style={{
                                 width: "25px",
@@ -241,7 +243,7 @@ const Manager = () => {
                           <div
                             className="lordcopy size-7 cursor-pointer"
                             onClick={() => copyText(item.password)}
-                          >
+                            >
                             <lord-icon
                               style={{
                                 width: "25px",
@@ -296,6 +298,7 @@ const Manager = () => {
                 })}
               </tbody>
             </table>
+            </div>
           }
         </div>
       </div>
