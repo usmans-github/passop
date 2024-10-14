@@ -19,7 +19,7 @@ const Manager = () => {
   }, []);
 
   const copyText = (text) => {
-    toast('Copied to Clipboard', {
+    toast.success("Copied to Clipboard", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -27,8 +27,8 @@ const Manager = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "light",
-      });
+      theme: "dark",
+    });
     navigator.clipboard.writeText(text);
   };
 
@@ -44,32 +44,40 @@ const Manager = () => {
   };
 
   const savePassword = () => {
-   
-    if (form.site.length > 3 &&
+    if (
+      form.site.length > 3 &&
       form.username.length > 3 &&
-      form.password.length > 3) {
-      setpasswordArray([...passwordArray, {...form, id: uuidv4()}]);
+      form.password.length > 3
+    ) {
+      setpasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
       localStorage.setItem(
         "passwords",
-        JSON.stringify([...passwordArray], {...form, id: uuidv4()})
+        JSON.stringify([...passwordArray], { ...form, id: uuidv4() })
       );
       setform({ site: "", username: "", password: "" });
     } else {
-      alert("Error: Password length must be > 3  Tostify");
+      alert("Error: Password length must be > 3 ");
     }
   };
 
   const deletePassword = (id) => {
     let c = confirm("Do You really want to delete this Password");
     if (c) {
-      setpasswordArray(passwordArray.filter((item) => item.id != id));
+      setpasswordArray(passwordArray.filter(item=> item.id !== id));
       localStorage.setItem(
         "passwords",
-        JSON.stringify(
-          passwordArray.filter((item) => item.id != id),
-          {...form, id: uuidv4()}
-        )
+        JSON.stringify(passwordArray.filter(item=> item.id !== id))
       );
+      toast("Password deleted", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   };
 
@@ -85,22 +93,22 @@ const Manager = () => {
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        transition="Bounce"
-      />
-      {/* Same as */}
-      <ToastContainer />
-      <div className="mycontainer p-2 md:p-0 min-h-[87.6vh] md:min-h-[82.6vh] w-[70vw]">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition="Bounce"
+        />
+        {/* Same as */}
+        <ToastContainer />
+      <div className="md:mycontainer w-full ">
         <h1 className="text-4xl font-bold text-center">
           <span className="text-green-500">&lt;</span>
           <span>Pass</span>
@@ -167,11 +175,11 @@ const Manager = () => {
             Add Password
           </button>
         </div>
-        <div className="passwords">
+        <div className="passwords ">
           <h2 className="font-bold text-2xl p-4">Your Passwords</h2>
           {passwordArray.length === 0 && <div>No Passwords to show</div>}
-          {passwordArray.length != 0 && (
-            <table className="table-auto w-full rounded-md overflow-hidden mb-6">
+          {passwordArray.length != 0 &&
+            <table className="table-auto  rounded-md  overflow-hidden mb-6">
               <thead className="bg-green-800 text-white ">
                 <tr>
                   <th className="py-2">Site</th>
@@ -254,7 +262,16 @@ const Manager = () => {
                             editPassword(item.id);
                           }}
                         >
-                          Edit
+                           <lord-icon
+                              style={{
+                                width: "25px",
+                                height: "25px",
+                                paddingTop: "4px",
+                                paddingLeft: "4px",
+                              }}
+                              src="https://cdn.lordicon.com/gwlusjdu.json"
+                              trigger="hover"
+                            ></lord-icon>
                         </span>
                         <span
                           className="cursor-pointer mx-2"
@@ -262,7 +279,16 @@ const Manager = () => {
                             deletePassword(item.id);
                           }}
                         >
-                          Delete
+                            <lord-icon
+                              style={{
+                                width: "25px",
+                                height: "25px",
+                                paddingTop: "4px",
+                                paddingLeft: "4px",
+                              }}
+                              src="https://cdn.lordicon.com/skkahier.json"
+                              trigger="hover"
+                            ></lord-icon>
                         </span>
                       </td>
                     </tr>
@@ -270,7 +296,7 @@ const Manager = () => {
                 })}
               </tbody>
             </table>
-          )}
+          }
         </div>
       </div>
     </>
