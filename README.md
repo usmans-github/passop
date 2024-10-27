@@ -1,8 +1,20 @@
-# React + Vite
+# PassOP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Demo**: [PassOP](https://passop-zeta.vercel.app/)
 
-Currently, two official plugins are available:
+## Overview
+PassOP is a secure and user-friendly password management application. This project allows users to efficiently store, edit, delete, and copy passwords, ensuring data security while being easy to use.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Secure Password Storage**: Save passwords with confidence.
+- **Edit/Delete**: Manage and update saved passwords seamlessly.
+- **Copy to Clipboard**: Quickly copy passwords with one click.
+
+## Tech Stack
+- **Frontend**: React
+- **Styling**: CSS3
+
+## Setup Instructions
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/passop.git
